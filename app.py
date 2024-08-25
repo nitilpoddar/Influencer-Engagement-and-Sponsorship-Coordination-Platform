@@ -34,11 +34,17 @@ def home():
 def createUser():
     username = request.form.get('username')
     email = request.form.get('email')
+    
 
     new_user = User(username=username, email=email)
     db.session.add(new_user)
     db.session.commit()
     return redirect(url_for('home'))
+
+@app.route('/showusers', methods=['GET'])
+def showuser():
+    users = User.query.all()
+    return render_template('viewUser.html', users=users)
 
 if __name__ == '__main__':
     # Create all the tables
