@@ -1,7 +1,9 @@
 # All the models will have this commonality of import
 
 from flask_sqlalchemy import SQLAlchemy
-from sqlalchemy.orm import DeclarativeBase
+from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column
+from sqlalchemy import Integer, String
+from models import *
 
 #creating a base class for creating a db object using the SQLAlchemy constructor
 # we are creating a seperate base class because if we want to add any custom functionality to our class then all the models would be able to inherit it
